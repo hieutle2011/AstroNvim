@@ -133,6 +133,7 @@ return {
         follow_current_file = { enabled = true },
         hijack_netrw_behavior = "open_current",
         use_libuv_file_watcher = true,
+        filtered_items = { visible = true }
       },
       event_handlers = {
         {
