@@ -454,4 +454,18 @@ maps.n["<leader>uw"] = { ui.toggle_wrap, desc = "Toggle wrap" }
 maps.n["<leader>uy"] = { ui.toggle_syntax, desc = "Toggle syntax highlighting (buffer)" }
 maps.n["<leader>uh"] = { ui.toggle_foldcolumn, desc = "Toggle foldcolumn" }
 
+-- Neotest
+if is_available "neotest" then
+  maps.n["<leader>mr"] = { function() require("neotest").run.run() end, desc = "Run test" }
+  maps.n["<leader>mf"] = { function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run file" }
+  maps.n["<leader>mu"] = { function() require("neotest").run.run({suite = true}) end, desc = "Run suite" }
+  -- maps.n["<leader>md"] = { function() require("neotest").run.run({vim.fn.expand("%"), strategy = "dap"}) end, desc = "Debug" }
+  maps.n["<leader>ms"] = { function() require("neotest").summary.toggle() end, desc = "Summary" }
+  maps.n["<leader>mp"] = { function() require("neotest").output_panel.toggle() end, desc = "Panel" }
+  maps.n["<leader>mo"] = { function() require("neotest").output.open() end, desc = "Output" }
+  maps.n["<leader>ml"] = { function() require("neotest").run.run_last() end, desc = "Run last" }
+  -- maps.n["<leader>ms"] = { function() require("neotest").run.stop() end, desc = "Stop" }
+  -- documentation https://github.com/nvim-neotest/neotest/blob/master/doc/neotest.txt
+end
+
 utils.set_mappings(astronvim.user_opts("mappings", maps))
